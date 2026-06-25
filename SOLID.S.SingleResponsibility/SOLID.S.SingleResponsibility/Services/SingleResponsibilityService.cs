@@ -77,7 +77,7 @@ namespace SOLID.S.SingleResponsibility.Service
         public void SendOrderConfirmation(Order order)
         {
             // sending email logic (e.g., using SMTP client or an email API)
-            Console.WriteLine($"[EMAIL] Confirmation sent to {order.CustomerEmail} for Order #{order.Id}");
+            Console.WriteLine($"[EMAIL] Confirmation sent to {order.Customer.CustomerEmail} for Order #{order.Id}");
         }
     }
 
@@ -87,7 +87,7 @@ namespace SOLID.S.SingleResponsibility.Service
         public string GenerateInvoice(Order order)
         {
             // PDF / HTML invoice logic here — nothing else
-            var invoice = $"INV-{order.Id:D6} | {order.CustomerName} | {order.TotalAmount:C}";
+            var invoice = $"INV-{order.Id:D6} | {order.Customer.CustomerName} | {order.TotalAmount:C}";
             Console.WriteLine($"[INVOICE] Generated: {invoice}");
             return invoice;
         }

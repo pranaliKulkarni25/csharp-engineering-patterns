@@ -3,15 +3,22 @@
     public class Order
     {
         public int Id { get; set; }
-        public string CustomerEmail { get; set; } = string.Empty;
-        public string CustomerName { get; set; } = string.Empty;
+        public Customer Customer { get; set; } = new Customer();
         public List<OrderItem> Items { get; set; } = new();
         public decimal TotalAmount { get; set; }
         public DateTime OrderDate { get; set; } = DateTime.UtcNow;
         public OrderStatus Status { get; set; } = OrderStatus.Pending;
-        public string CustomerType { get; set; } = "Regular"; // For discount strategy
         public decimal DiscountedAmount { get; set; } = 0; // For storing discounted amount
         public string PaymentMethod {  get; set; } = string.Empty;
+    }
+
+    public class Customer
+    {
+        public string CustomerEmail { get; set; } = string.Empty;
+        public string CustomerPhoneNumber { get; set; } = string.Empty;
+        public string CustomerName { get; set; } = string.Empty;
+        public string CustomerType { get; set; } = "Regular"; // For discount strategy
+        public List<string> NotifyBy { get; set; } = new List<string>();
     }
 
     public class OrderItem

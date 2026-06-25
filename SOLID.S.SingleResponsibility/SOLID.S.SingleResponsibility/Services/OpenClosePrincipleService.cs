@@ -43,7 +43,7 @@ namespace SOLID.Principles.Demo.Services
 
         public decimal ApplyDiscount(Order order)
         {
-            var strategy = _discountStrategies.FirstOrDefault(s => s.CustomerType == order.CustomerType);
+            var strategy = _discountStrategies.FirstOrDefault(s => s.CustomerType == order.Customer.CustomerType);
             if (strategy is null)
                 return order.TotalAmount; // No discount
             var discounted = strategy.Apply(order.TotalAmount);

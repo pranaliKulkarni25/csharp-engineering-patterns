@@ -12,6 +12,9 @@ builder.Services.AddScoped<ILogger<OrderService>, Logger<OrderService>>();
 builder.Services.AddScoped<IPaymentProcess, CreditCardProcessor>();
 builder.Services.AddScoped<IPaymentProcess, BankTransferProcessor>();
 builder.Services.AddScoped<ILiskovSubstitutionService, LiskovSubstitutionService>();
+builder.Services.AddScoped<IEmailSender,  EmailSender>();
+builder.Services.AddScoped<ISmsSender, SmsSender>();
+builder.Services.AddScoped<IInterfaceSegregationService, InterfaceSegregationService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
