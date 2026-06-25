@@ -15,6 +15,9 @@ builder.Services.AddScoped<ILiskovSubstitutionService, LiskovSubstitutionService
 builder.Services.AddScoped<IEmailSender,  EmailSender>();
 builder.Services.AddScoped<ISmsSender, SmsSender>();
 builder.Services.AddScoped<IInterfaceSegregationService, InterfaceSegregationService>();
+builder.Services.AddScoped<IReportGenerator, PdfReportGenerator>();
+builder.Services.AddScoped<IReportGenerator, ExcelReportGenerator>();
+builder.Services.AddScoped<IDependencyInversionService, DependencyInversionService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
